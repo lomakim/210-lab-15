@@ -2,7 +2,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <string>
 using namespace std;
 
 class Movie{
@@ -29,8 +28,9 @@ int main() {
     //DECLARATIONS
     const int SIZE = 4;
     vector <Movie> movies(SIZE);
-    int tmpY;
-    string tmpW, tmpT;
+    int count;                  //int for vector element count
+    int tmpY;                       //temp year for reading file
+    string tmpW, tmpT;              //temp writer and title for reading file
     
     //OPEN INPUT FILE
     ifstream fin;
@@ -38,30 +38,37 @@ int main() {
 
     //VALIDATE FILE AND READ DATA
     if(fin.good()) {
-        int count = 0;      //int for vector element count
+        count = 0;  //set vector element counter to 0
+
+        //Read values from file into temp variables
         while(getline(fin, tmpT)) {
             fin >> tmpY;
             fin.ignore();
             getline(fin, tmpW);
 
+            //Set values for vector element using temp varialbes
             movies[count].setMovieTitle(tmpT);
             movies[count].setReleaseYear(tmpY);
             movies[count].setScreenwriter(tmpW);
 
+            //Increment element counter variable
             count++;
         }
     }
 
-    //PRINT VECTOR CONTENTS
+    //BANNER
     cout << "**** MOVIES CONTAINED IN INPUT.TXT FILE" << endl;
 
+    //PRINT VECTOR CONTENTS - using for loop  
     for (int i = 0; i < SIZE; i++){
         movies[i].print();
     }
-    
+
     return 0;
 }
 
+
+//Print - member function for Movie class; prints title, year, & screenwriter
 void Movie::print() const {
     cout << "\nMovie Title: " << title << endl;
     cout << "\tYear Released: " << year << endl;
