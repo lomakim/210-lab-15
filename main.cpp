@@ -1,6 +1,7 @@
 // COMSC-210 | Lab 15 | Loma Kim
 #include <iostream>
 #include <fstream>
+#include <vector>
 using namespace std;
 
 class Movie{
@@ -24,10 +25,21 @@ class Movie{
 };
 
 int main() {
+    //DECLARATIONS
+    vector <Movie> movies;
+    int tmpY;           //temp variable for year
+    string tmpW, tmpT;  //temp variable for writer and title
+    
+    //Open input file
+    ifstream fin;
+    fin.open("input.txt");
+
     Movie sa;
     sa.setScreenwriter("Hayao Miyazaki");
     sa.setReleaseYear(2001);
     sa.setMovieTitle("Spirited Away");
+    
+
 
     //BANNER
     cout << "**** MOVIE LIST ****" << endl;
