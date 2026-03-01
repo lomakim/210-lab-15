@@ -11,23 +11,33 @@ class Movie{
 
     public:
     //MUTATORS
-    void setScreenWriter(string w) { writer = w; }
+    void setScreenwriter(string w) { writer = w; }
     void setReleaseYear(int y) { year = y; }
     void setMovieTitle(string t) { title = t; }
 
     //ACCESSORS
-    string getScreenWriter() const { return writer; }
+    string getScreenwriter() const { return writer; }
     int getReleaseYear() const { return year; }
     string getMovieTitle() const { return title; }
 
-    void printMovie() const;
+    void print() const;
 };
 
 int main() {
+    Movie sa;
+    sa.setScreenwriter("Hayao Miyazaki");
+    sa.setReleaseYear(2001);
+    sa.setMovieTitle("Spirited Away");
 
+    //BANNER
+    cout << "**** MOVIE LIST ****" << endl;
+
+    sa.print();
     return 0;
 }
 
-void Movie::printMovie() const {
-    
+void Movie::print() const {
+    cout << "\nMovie Title: " << title << endl;
+    cout << "\tYear Released: " << year << endl;
+    cout << "\tScreenwriter: " << writer << endl;
 }
