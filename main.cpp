@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
 using namespace std;
 
 class Movie{
@@ -26,9 +27,10 @@ class Movie{
 
 int main() {
     //DECLARATIONS
-    vector <Movie> movies;
-    int tmpY;           //temp variable for year
-    string tmpW, tmpT;  //temp variable for writer and title
+    vector<Movie> m;
+    int tmpY;
+    string tmpW, tmpT;
+    Movie tmp;
     
     //OPEN INPUT FILE
     ifstream fin;
@@ -42,7 +44,11 @@ int main() {
             fin.ignore();
             getline(fin, tmpW);
 
-            if (i > 0)      
+            tmp.setMovieTitle(tmpT);
+            tmp.setReleaseYear(tmpY);
+            tmp.setScreenwriter(tmpW);
+
+            m.push_back(tmp);  
         }
     }
 
