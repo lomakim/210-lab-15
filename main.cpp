@@ -30,15 +30,27 @@ int main() {
     int tmpY;           //temp variable for year
     string tmpW, tmpT;  //temp variable for writer and title
     
-    //Open input file
+    //OPEN INPUT FILE
     ifstream fin;
     fin.open("input.txt");
+
+    //VALIDATE FILE AND READ DATA
+    if(fin.good()) {
+        int i = 0;      //int for vector element count
+        while(getline(fin, tmpT)){
+            fin >> tmpY;
+            fin.ignore();
+            getline(fin, tmpW);
+
+            if (i > 0)      
+        }
+    }
 
     Movie sa;
     sa.setScreenwriter("Hayao Miyazaki");
     sa.setReleaseYear(2001);
     sa.setMovieTitle("Spirited Away");
-    
+
 
 
     //BANNER
