@@ -27,10 +27,10 @@ class Movie{
 
 int main() {
     //DECLARATIONS
-    vector<Movie> m;
+    const int SIZE = 4;
+    vector <Movie> movies(SIZE);
     int tmpY;
     string tmpW, tmpT;
-    Movie tmp;
     
     //OPEN INPUT FILE
     ifstream fin;
@@ -38,31 +38,27 @@ int main() {
 
     //VALIDATE FILE AND READ DATA
     if(fin.good()) {
-        int i = 0;      //int for vector element count
-        while(getline(fin, tmpT)){
+        int count = 0;      //int for vector element count
+        while(getline(fin, tmpT)) {
             fin >> tmpY;
             fin.ignore();
             getline(fin, tmpW);
 
-            tmp.setMovieTitle(tmpT);
-            tmp.setReleaseYear(tmpY);
-            tmp.setScreenwriter(tmpW);
+            movies[count].setMovieTitle(tmpT);
+            movies[count].setReleaseYear(tmpY);
+            movies[count].setScreenwriter(tmpW);
 
-            m.push_back(tmp);  
+            count++;
         }
     }
 
-    Movie sa;
-    sa.setScreenwriter("Hayao Miyazaki");
-    sa.setReleaseYear(2001);
-    sa.setMovieTitle("Spirited Away");
+    //PRINT VECTOR CONTENTS
+    cout << "**** MOVIES CONTAINED IN INPUT.TXT FILE" << endl;
 
-
-
-    //BANNER
-    cout << "**** MOVIE LIST ****" << endl;
-
-    sa.print();
+    for (int i = 0; i < SIZE; i++){
+        movies[i].print();
+    }
+    
     return 0;
 }
 
