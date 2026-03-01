@@ -55,18 +55,23 @@ int main() {
             count++;
         }
     }
+    else {
+        cout << "ERROR: File not found." << endl;
+    }
 
     //BANNER
-    cout << "**** MOVIES CONTAINED IN INPUT.TXT FILE" << endl;
+    cout << "**** MOVIES CONTAINED IN INPUT.TXT FILE ****" << endl;
 
     //PRINT VECTOR CONTENTS - using for loop  
     for (int i = 0; i < SIZE; i++){
         movies[i].print();
     }
 
+    //CLOSE FILE
+    fin.close();
+
     return 0;
 }
-
 
 //Print - member function for Movie class; prints title, year, & screenwriter
 void Movie::print() const {
